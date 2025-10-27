@@ -1,135 +1,30 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Chat AI</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #f7f7f8;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      margin: 0;
-    }
-
-    .chat-container {
-      width: 400px;
-      max-width: 100%;
-      background-color: #fff;
-      border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-      display: flex;
-      flex-direction: column;
-      overflow: hidden;
-    }
-
-    .chat-header {
-      background-color: #4a90e2;
-      color: #fff;
-      padding: 15px;
-      font-size: 18px;
-      font-weight: bold;
-    }
-
-    .chat-messages {
-      flex: 1;
-      padding: 15px;
-      overflow-y: auto;
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
-
-    .message {
-      padding: 10px 15px;
-      border-radius: 20px;
-      max-width: 80%;
-      word-wrap: break-word;
-    }
-
-    .user-message {
-      background-color: #4a90e2;
-      color: #fff;
-      align-self: flex-end;
-    }
-
-    .ai-message {
-      background-color: #e5e5ea;
-      color: #000;
-      align-self: flex-start;
-    }
-
-    .chat-input {
-      display: flex;
-      border-top: 1px solid #ddd;
-    }
-
-    .chat-input input {
-      flex: 1;
-      border: none;
-      padding: 15px;
-      font-size: 16px;
-      border-radius: 0;
-    }
-
-    .chat-input button {
-      background-color: #4a90e2;
-      color: #fff;
-      border: none;
-      padding: 15px 20px;
-      cursor: pointer;
-      font-size: 16px;
-    }
-
-    .chat-input input:focus {
-      outline: none;
-    }
-  </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>We are currently making some improvements!</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <body>
-  <div class="chat-container">
-    <div class="chat-header">Chat AI</div>
-    <div class="chat-messages" id="chatMessages"></div>
-    <div class="chat-input">
-      <input type="text" id="userInput" placeholder="Nhập tin nhắn..." />
-      <button onclick="sendMessage()">Gửi</button>
+  <div class="container">
+    <div class="logo">
+      <a href="https://www.facebook.com/thuan.an.9850" target="_blank">
+        <img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" alt="Facebook" class="social-icon">
+      </a>
+      <a href="https://instagram.com" target="_blank">
+        <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram" class="social-icon">
+      </a>
+      <a href="https://twitter.com" target="_blank">
+        <img src="https://cdn-icons-png.flaticon.com/512/733/733579.png" alt="Twitter" class="social-icon">
+      </a>
     </div>
+
+    <h1>We are currently making some improvements!</h1>
+    <p>Trang web đang trong quá trình hoàn thiện để mang lại trải nghiệm tốt hơn cho bạn.</p>
+    
+    <a href="chat.html" class="chat-btn">CHAT THÔI</a>
   </div>
-
-  <script>
-    const chatMessages = document.getElementById('chatMessages');
-    const userInput = document.getElementById('userInput');
-
-    function appendMessage(text, sender) {
-      const message = document.createElement('div');
-      message.classList.add('message');
-      message.classList.add(sender === 'user' ? 'user-message' : 'ai-message');
-      message.innerText = text;
-      chatMessages.appendChild(message);
-      chatMessages.scrollTop = chatMessages.scrollHeight;
-    }
-
-    function sendMessage() {
-      const text = userInput.value.trim();
-      if (!text) return;
-
-      appendMessage(text, 'user');
-      userInput.value = '';
-
-      // Gọi API AI của bạn ở đây, ví dụ fetch tới server
-      // Hiện tạm thời giả lập trả lời AI
-      setTimeout(() => {
-        const aiResponse = `AI trả lời: ${text}`; // Thay bằng API trả về thật
-        appendMessage(aiResponse, 'ai');
-      }, 500);
-    }
-
-    userInput.addEventListener('keypress', function(e) {
-      if (e.key === 'Enter') sendMessage();
-    });
-  </script>
 </body>
 </html>
