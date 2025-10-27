@@ -1,0 +1,67 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  background: linear-gradient(135deg, #f6f8fb, #e6f0ff);
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.container {
+  text-align: center;
+  max-width: 600px;
+  padding: 30px;
+  background: #ffffffb8;
+  border-radius: 25px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.logo {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+  gap: 15px;
+}
+
+.social-icon {
+  width: 40px;
+  height: 40px;
+  transition: transform 0.2s ease;
+}
+
+.social-icon:hover {
+  transform: scale(1.1);
+}
+
+h1 {
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 15px;
+}
+
+p {
+  color: #555;
+  margin-bottom: 30px;
+}
+
+.chat-btn {
+  display: inline-block;
+  padding: 12px 30px;
+  background: #0078ff;
+  color: white;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.chat-btn:hover {
+  background: #005ec4;
+  transform: translateY(-2px);
+}
