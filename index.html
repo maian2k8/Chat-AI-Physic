@@ -1,190 +1,278 @@
 <!DOCTYPE html>
+
 <html lang="vi">
+
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>We are currently making some improvements!</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Poppins', sans-serif;
-    }
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Alan Dev Agency | Chat AI</title>
+    <link rel="icon" type="image/png"
+        href="https://lh3.googleusercontent.com/a/ACg8ocIrhpJyuv4jT2pJpWSaha-dZBU9jjfwpOWHCLe_vBNAid9f7Nw=s576-c-no" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
 
-    body {
-      background: linear-gradient(135deg, #f6f8fb, #e6f0ff);
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: all 0.5s ease;
-    }
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
 
-    .container {
-      text-align: center;
-      max-width: 600px;
-      padding: 30px;
-      background: #ffffffb8;
-      border-radius: 25px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-      z-index: 2;
-    }
+        body {
+            background: linear-gradient(135deg, #fdfbfb, #ebedee);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            animation: fadeSlideIn 1s ease forwards, bgColorChange 25s infinite alternate;
+            background-size: 400% 400%;
+        }
 
-    .logo {
-      display: flex;
-      justify-content: center;
-      margin-bottom: 20px;
-      gap: 15px;
-    }
+        @keyframes fadeSlideIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
 
-    .social-icon {
-      width: 40px;
-      height: 40px;
-      transition: transform 0.2s ease;
-    }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
 
-    .social-icon:hover {
-      transform: scale(1.1);
-    }
+        @keyframes bgColorChange {
+            0% {
+                background: linear-gradient(135deg, #fcefee, #e8f0fe);
+            }
 
-    h1 {
-      font-weight: 600;
-      color: #333;
-      margin-bottom: 15px;
-    }
+            25% {
+                background: linear-gradient(135deg, #fef9e7, #e8f5e9);
+            }
 
-    p {
-      color: #555;
-      margin-bottom: 30px;
-    }
+            50% {
+                background: linear-gradient(135deg, #e0f7fa, #ede7f6);
+            }
 
-    .chat-btn {
-      display: inline-block;
-      padding: 12px 30px;
-      background: #0078ff;
-      color: white;
-      border-radius: 50px;
-      text-decoration: none;
-      font-weight: 600;
-      transition: background 0.3s ease, transform 0.2s ease;
-      cursor: pointer;
-    }
+            75% {
+                background: linear-gradient(135deg, #f3e5f5, #e8f0fe);
+            }
 
-    .chat-btn:hover {
-      background: #005ec4;
-      transform: translateY(-2px);
-    }
+            100% {
+                background: linear-gradient(135deg, #fce4ec, #f3e5f5);
+            }
+        }
 
-    /* Full screen chat style */
-    #chat-screen {
-      display: none;
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100vw;
-      height: 100vh;
-      background: #f6f8fb;
-      z-index: 9999;
-      animation: fadeIn 0.5s ease;
-    }
+        .container {
+            text-align: center;
+            max-width: 600px;
+            padding: 35px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 30px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+            animation: fadeSlideIn 1.2s ease forwards;
+        }
 
-    @keyframes fadeIn {
-      from { opacity: 0; transform: scale(1.02); }
-      to { opacity: 1; transform: scale(1); }
-    }
+        .main-logo {
+            width: 120px;
+            border-radius: 50%;
+            border: 3px solid white;
+            margin: 0 auto 20px;
+            animation: float 3s ease-in-out infinite;
+        }
 
-    .back-btn {
-      position: absolute;
-      top: 15px;
-      left: 20px;
-      background: #0078ff;
-      color: white;
-      padding: 8px 15px;
-      border-radius: 20px;
-      text-decoration: none;
-      font-weight: 500;
-      transition: background 0.3s;
-      z-index: 10000;
-      cursor: pointer;
-    }
+        @keyframes float {
 
-    .back-btn:hover {
-      background: #005ec4;
-    }
+            0%,
+            100% {
+                transform: translateY(0);
+            }
 
-    /* Voiceflow full screen */
-    #vf-chat,
-    .vf-chat {
-      position: fixed !important;
-      top: 0 !important;
-      left: 0 !important;
-      width: 100vw !important;
-      height: 100vh !important;
-      border-radius: 0 !important;
-      box-shadow: none !important;
-      z-index: 9998 !important;
-    }
-  </style>
+            50% {
+                transform: translateY(-8px);
+            }
+        }
+
+        .logo {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 15px;
+            gap: 20px;
+        }
+
+        .social-icon {
+            width: 45px;
+            height: 45px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-radius: 50%;
+        }
+
+        .social-icon:hover {
+            transform: scale(1.15) rotate(5deg);
+            box-shadow: 0 0 10px rgba(0, 120, 255, 0.3);
+        }
+
+        h1 {
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 15px;
+        }
+
+        p {
+            color: #555;
+            margin-bottom: 30px;
+        }
+
+        .chat-btn {
+            display: inline-block;
+            padding: 14px 36px;
+            background: linear-gradient(135deg, #7ec8e3, #70a1ff);
+            color: white;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .chat-btn:hover {
+            background: linear-gradient(135deg, #70a1ff, #4e8cff);
+            transform: translateY(-4px) scale(1.05);
+            box-shadow: 0 8px 20px rgba(0, 120, 255, 0.3);
+        }
+
+        .contact {
+            margin-top: 25px;
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        .contact a {
+            color: #0078ff;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .contact a:hover {
+            color: #005ec4;
+        }
+
+        /* Chat screen */
+        #chat-screen {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: #f6f8fb;
+            z-index: 9999;
+            animation: fadeIn 0.6s ease;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: scale(1.02);
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .back-btn {
+            position: absolute;
+            top: 15px;
+            left: 20px;
+            background: #0078ff;
+            color: white;
+            padding: 10px 18px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: background 0.3s;
+            z-index: 10000;
+            cursor: pointer;
+        }
+
+        .back-btn:hover {
+            background: #005ec4;
+        }
+    </style>
+
 </head>
+
 <body>
 
-  <!-- Trang giới thiệu -->
-  <div class="container" id="intro-screen">
-    <div class="logo">
-      <a href="https://www.facebook.com/thuan.an.9850" target="_blank">
-        <img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" alt="Facebook" class="social-icon">
-      </a>
-      <a href="https://instagram.com" target="_blank">
-        <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram" class="social-icon">
-      </a>
-      <a href="https://twitter.com" target="_blank">
-        <img src="https://cdn-icons-png.flaticon.com/512/733/733579.png" alt="Twitter" class="social-icon">
-      </a>
+    <!-- Intro -->
+
+    <div class="container" id="intro-screen">
+        <img src="https://lh3.googleusercontent.com/a/ACg8ocIrhpJyuv4jT2pJpWSaha-dZBU9jjfwpOWHCLe_vBNAid9f7Nw=s576-c-no"
+            alt="Alan Dev Agency Logo" class="main-logo">
+        <h1>Welcome to Alan Dev Agency</h1>
+        <p>Chúng tôi đang nâng cấp để mang đến cho bạn trải nghiệm AI tốt nhất!</p>
+        <button class="chat-btn" onclick="openChat()">💬 CHAT THÔI</button>
+
+        ```
+        <div class="logo">
+            <a href="https://www.facebook.com/thuan.an.9850" target="_blank">
+                <img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" alt="Facebook" class="social-icon">
+            </a>
+            <a href="https://www.instagram.com/soraan2024/" target="_blank">
+                <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram" class="social-icon">
+            </a>
+        </div>
+
+        <div class="contact">
+            Liên hệ góp ý: <a href="mailto:maitrieuthuanan@gmail.com">maitrieuthuanan@gmail.com</a>
+        </div>
+        ```
+
     </div>
 
-    <h1>We are currently making some improvements!</h1>
-    <p>Trang web đang trong quá trình hoàn thiện để mang lại trải nghiệm tốt hơn cho bạn.</p>
+    <!-- Chat -->
 
-    <button class="chat-btn" onclick="openChat()">CHAT THÔI</button>
-  </div>
+    <div id="chat-screen">
+        <div class="back-btn" onclick="closeChat()">← Quay lại</div>
+    </div>
 
-  <!-- Trang chat full screen -->
-  <div id="chat-screen">
-    <div class="back-btn" onclick="closeChat()">← Quay lại</div>
-  </div>
+    <!-- Script -->
 
-  <!-- Voiceflow script -->
-  <script type="text/javascript">
-    (function(d, t) {
-        var v = d.createElement(t), s = d.getElementsByTagName(t)[0];
-        v.onload = function() {
-          window.voiceflow.chat.load({
-            verify: { projectID: '68fc6652fab11e098f23fcd7' },
-            url: 'https://general-runtime.voiceflow.com',
-            versionID: 'production',
-            voice: { url: "https://runtime-api.voiceflow.com" }
-          });
-        };
-        v.src = "https://cdn.voiceflow.com/widget-next/bundle.mjs";
-        v.type = "text/javascript";
-        s.parentNode.insertBefore(v, s);
-    })(document, 'script');
-  </script>
+    <!-- Script chuyển đổi màn hình + load Voiceflow -->
+    <script>
+        function openChat() {
+            document.getElementById("intro-screen").style.display = "none";
+            document.getElementById("chat-screen").style.display = "block";
 
-  <!-- Chuyển đổi giữa 2 màn hình -->
-  <script>
-    function openChat() {
-      document.getElementById("intro-screen").style.display = "none";
-      document.getElementById("chat-screen").style.display = "block";
-    }
+            // Chỉ load Voiceflow khi người dùng nhấn nút chat
+            (function (d, t) {
+                var v = d.createElement(t), s = d.getElementsByTagName(t)[0];
+                v.onload = function () {
+                    window.voiceflow.chat.load({
+                        verify: { projectID: '68fc6652fab11e098f23fcd7' },
+                        url: 'https://general-runtime.voiceflow.com',
+                        versionID: 'production',
+                        voice: { url: "https://runtime-api.voiceflow.com" }
+                    });
+                };
+                v.src = "https://cdn.voiceflow.com/widget-next/bundle.mjs";
+                v.type = "text/javascript";
+                s.parentNode.insertBefore(v, s);
+            })(document, 'script');
+        }
 
-    function closeChat() {
-      document.getElementById("chat-screen").style.display = "none";
-      document.getElementById("intro-screen").style.display = "flex";
-    }
-  </script>
+        function closeChat() {
+            document.getElementById("chat-screen").style.display = "none";
+            document.getElementById("intro-screen").style.display = "flex";
+            location.reload(); // reset chat
+        }
+    </script>
 
 </body>
+
 </html>
